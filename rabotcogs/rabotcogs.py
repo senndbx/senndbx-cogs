@@ -2,8 +2,10 @@ import aiohttp
 import discord
 from random import randint
 from redbot.core import commands, checks, bank, errors, commands
+from azurlane.azurapi import AzurAPI
 
 defaultPayout = 100
+api = AzurAPI()
 
 class Rabotcogs(commands.Cog):
     """Rabi Rabot cogs here."""
@@ -12,11 +14,19 @@ class Rabotcogs(commands.Cog):
         # self.bot = bot
         self.ctx = ctx
 
+    # @commands.command()
+    # @checks.mod_or_permissions(administrator=True)
+    # async def asdf(self, ctx: commands.Context):
+    #     credits_name = await bank.get_currency_name(ctx.guild)
+    #     await ctx.send("{}".format(credits_name))
+
     @commands.command()
     @checks.mod_or_permissions(administrator=True)
-    async def asdf(self, ctx: commands.Context):
-        credits_name = await bank.get_currency_name(ctx.guild)
-        await ctx.send("{}".format(credits_name))
+    @commands.bot_has_permissions(embed_links=True)
+    async def boatinfo(self, ctx: commands.Context, shipName):
+        obj = api.getShip(ship=shipName)
+        await ctx.send("`{}`".format(obj))
+
         
     @commands.command(pass_context=True)
     async def dubs(self, ctx: commands.Context):
