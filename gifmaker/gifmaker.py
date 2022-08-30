@@ -82,8 +82,8 @@ class Gifmaker(commands.Cog):
                 isgif = True
             else:
                 raise ImageFindError(f'That does not look like an image of a supported filetype.')
-            # if ctx.message.attachments[0].size > 8000000:
-            #     raise ImageFindError('That image is too large.')
+            if ctx.message.attachments[0].size > 8000000:
+                raise ImageFindError('That image is too large.')
             temp_orig = BytesIO()
             await ctx.message.attachments[0].save(temp_orig)
             temp_orig.seek(0)
