@@ -20,12 +20,26 @@ class Rabotcogs(commands.Cog):
     #     credits_name = await bank.get_currency_name(ctx.guild)
     #     await ctx.send("{}".format(credits_name))
 
-    @commands.command()
+    @commands.command(pass_context=True)
     @checks.mod_or_permissions(administrator=True)
-    @commands.bot_has_permissions(embed_links=True)
-    async def boatinfo(self, ctx: commands.Context, shipName):
-        obj = api.getShip(ship=shipName)
-        await ctx.send("`{}`".format(obj))
+    # @commands.bot_has_permissions(embed_links=True)
+    async def alapi(self, ctx: commands.Context, *, shipName="Enterprise"):
+        try:
+            obj = api.getShip(ship=ShipName)
+            await ctx.send("==> {}".format(obj))
+        except:
+            await ctx.send("There was an error in the process.")
+        # try:
+        #     # obj = api.getShip(ship=shipName)
+        #     # await ctx.send("`{}`".format(obj))
+        #     async with aiohttp.ClientSession() as session:
+        #         async with api.getShip(shipName) as response
+        #         obj = await response.json
+        # except: aiohttp.ClientError:
+        #     await ctx.send(
+        #         _("There was an error in the process.")
+        #     )
+        #     return
 
         
     @commands.command(pass_context=True)
