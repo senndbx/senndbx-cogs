@@ -23,7 +23,8 @@ class Rabotcogs(commands.Cog):
     @commands.command(pass_context=True)
     @checks.mod_or_permissions(administrator=True)
     # @commands.bot_has_permissions(embed_links=True)
-    async def alapi(self, ctx: commands.Context, *, shipName="Enterprise"):
+    async def alapi(self, ctx: commands.Context, shipName="Enterprise"):
+        """Imageboard-style RNG. Try for repeating digits on the end"""
         try:
             obj = api.getShip(ship=ShipName)
             await ctx.send("==> {}".format(obj))
