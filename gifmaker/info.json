@@ -1,0 +1,9 @@
+{
+    "author" : ["senndbx"],
+    "install_msg" : "Cogs for some fun gif-making actions",
+    "name" : "gifmaker",
+    "short" : "gifm",
+    "requirements" : ["pet-pet-gif"],
+    "tags" : ["fun"],
+    "end_user_data_statement": "This cog does not store user data."
+}

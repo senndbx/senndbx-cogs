@@ -1,0 +1,9 @@
+{
+    "author" : ["senndbx"],
+    "install_msg" : "Rabotcogs, for homemade purposes",
+    "name" : "rabotcogs",
+    "short" : "rabot",
+    "requirements" : ["azurapi"],
+    "tags" : ["fun"],
+    "end_user_data_statement": "This cog does not store user data."
+}
