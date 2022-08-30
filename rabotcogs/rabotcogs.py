@@ -24,13 +24,13 @@ class Rabotcogs(commands.Cog):
     @commands.command()
     @checks.mod_or_permissions(administrator=True)
     # @commands.bot_has_permissions(embed_links=True)
-    async def azln(self, ctx: commands.Context, shipName="Enterprise"):
+    async def azln(self, ctx: commands.Context, shipName):
         """AL api pulling data test"""
-        test = "==>"
         res = api.getShip(ship=shipName)
-        data = json.loads(res)
-        data = json.dumps(data)
-        await ctx.send(test + " " + shipName + " " + "`{}`".format(data))
+        data = json.dumps(res)
+        wikiUrl = res.get("wikiUrl")
+        await ctx.send("Wiki for {} is {}".format(shipName, wikiUrl))
+        # await ctx.send(test + " " + shipName + " " + "`{}`".format(data))
         # try:
         #     obj = api.getShip(ship=ShipName)
         #     await ctx.send("==> {}".format(obj))
