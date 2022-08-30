@@ -1,5 +1,6 @@
 import aiohttp
 import discord
+import json
 from random import randint
 from redbot.core import commands, checks, bank, errors, commands
 from azurlane.azurapi import AzurAPI
@@ -25,8 +26,11 @@ class Rabotcogs(commands.Cog):
     # @commands.bot_has_permissions(embed_links=True)
     async def azln(self, ctx: commands.Context, shipName="Enterprise"):
         """AL api pulling data test"""
-        test = "Here's some stuff."
-        await ctx.send(test + shipName)
+        test = "==>"
+        res = api.getShip(ship=shipName)
+        data = json.loads(res)
+        data = json.dumps(data)
+        await ctx.send(test + " " + shipName + " " + "`{}`".format(data))
         # try:
         #     obj = api.getShip(ship=ShipName)
         #     await ctx.send("==> {}".format(obj))
