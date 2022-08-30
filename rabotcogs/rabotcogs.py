@@ -20,16 +20,18 @@ class Rabotcogs(commands.Cog):
     #     credits_name = await bank.get_currency_name(ctx.guild)
     #     await ctx.send("{}".format(credits_name))
 
-    @commands.command(pass_context=True)
+    @commands.command()
     @checks.mod_or_permissions(administrator=True)
     # @commands.bot_has_permissions(embed_links=True)
-    async def alapi(self, ctx: commands.Context, shipName="Enterprise"):
-        """Imageboard-style RNG. Try for repeating digits on the end"""
-        try:
-            obj = api.getShip(ship=ShipName)
-            await ctx.send("==> {}".format(obj))
-        except:
-            await ctx.send("There was an error in the process.")
+    async def azln(self, ctx: commands.Context, shipName="Enterprise"):
+        """AL api pulling data test"""
+        test = "Here's some stuff."
+        await ctx.send(test + shipName)
+        # try:
+        #     obj = api.getShip(ship=ShipName)
+        #     await ctx.send("==> {}".format(obj))
+        # except:
+        #     await ctx.send("There was an error in the process.")
         # try:
         #     # obj = api.getShip(ship=shipName)
         #     # await ctx.send("`{}`".format(obj))
