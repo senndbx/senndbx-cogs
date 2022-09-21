@@ -82,7 +82,8 @@ class Gifmaker(commands.Cog):
                 isgif = True
             else:
                 raise ImageFindError(f'That does not look like an image of a supported filetype.')
-            if ctx.message.attachments[0].size > 8000000:
+            # if ctx.message.attachments[0].size > 8000000:
+            if ctx.message.attachments[0].size > 1000000:
                 raise ImageFindError('That image is too large.')
             temp_orig = BytesIO()
             await ctx.message.attachments[0].save(temp_orig)
@@ -133,7 +134,8 @@ class Gifmaker(commands.Cog):
 
         source = BytesIO(image)
         dest = BytesIO()
-        WobbleGif().make(source, dest, is_gif=isgif)
+        # WobbleGif().make(source, dest, is_gif=isgif)
+        WobbleGif().make(source, dest, is_gif=False)
         dest.seek(0)
 
         try:
@@ -148,7 +150,8 @@ class Gifmaker(commands.Cog):
 
         source = BytesIO(image)
         dest = BytesIO()
-        ShakeGif().make(source, dest, is_gif=isgif)
+        # ShakeGif().make(source, dest, is_gif=isgif)
+        ShakeGif().make(source, dest, is_gif=False)
         dest.seek(0)
 
         try:
@@ -163,7 +166,8 @@ class Gifmaker(commands.Cog):
 
         source = BytesIO(image)
         dest = BytesIO()
-        BonkGif().make(source, dest, is_gif=isgif)
+        # BonkGif().make(source, dest, is_gif=isgif)
+        BonkGif().make(source, dest, is_gif=False)
         dest.seek(0)
 
         try:
@@ -178,7 +182,8 @@ class Gifmaker(commands.Cog):
 
         source = BytesIO(image)
         dest = BytesIO()
-        EssexBurnGif().make(source, dest, is_gif=isgif)
+        # EssexBurnGif().make(source, dest, is_gif=isgif)
+        EssexBurnGif().make(source, dest, is_gif=False)
         dest.seek(0)
 
         try:

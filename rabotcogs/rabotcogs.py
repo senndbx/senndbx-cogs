@@ -15,39 +15,14 @@ class Rabotcogs(commands.Cog):
         # self.bot = bot
         self.ctx = ctx
 
-    # @commands.command()
-    # @checks.mod_or_permissions(administrator=True)
-    # async def asdf(self, ctx: commands.Context):
-    #     credits_name = await bank.get_currency_name(ctx.guild)
-    #     await ctx.send("{}".format(credits_name))
-
     @commands.command()
     @checks.mod_or_permissions(administrator=True)
-    # @commands.bot_has_permissions(embed_links=True)
+    @commands.bot_has_permissions(embed_links=True)
     async def azln(self, ctx: commands.Context, shipName):
         """AL api pulling data test"""
         res = api.getShip(ship=shipName)
-        data = json.dumps(res)
         wikiUrl = res.get("wikiUrl")
         await ctx.send("Wiki for {} is {}".format(shipName, wikiUrl))
-        # await ctx.send(test + " " + shipName + " " + "`{}`".format(data))
-        # try:
-        #     obj = api.getShip(ship=ShipName)
-        #     await ctx.send("==> {}".format(obj))
-        # except:
-        #     await ctx.send("There was an error in the process.")
-        # try:
-        #     # obj = api.getShip(ship=shipName)
-        #     # await ctx.send("`{}`".format(obj))
-        #     async with aiohttp.ClientSession() as session:
-        #         async with api.getShip(shipName) as response
-        #         obj = await response.json
-        # except: aiohttp.ClientError:
-        #     await ctx.send(
-        #         _("There was an error in the process.")
-        #     )
-        #     return
-
         
     @commands.command(pass_context=True)
     async def dubs(self, ctx: commands.Context):
